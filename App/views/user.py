@@ -46,9 +46,9 @@ def logsIn_user():
         flash('Wrong Username or Password!')
         return render_template('login.html')
     login_user(user)
-    #return redirec'(url_for('user_views.render_game'))
-    return redirect('https://thebestthereis2.herokuapp.com/game')
-    #return render_template('index.html')
+    #return redirect('https://thebestthereis2.herokuapp.com/game')
+    scores = get_desc_order()
+    return render_template('index.html',scores=scores)
 
 @user_views.route('/logout', methods=['GET'])
 @login_required
@@ -61,7 +61,9 @@ def logout():
 @login_required
 def createScore(sc):
     score = create_score(current_user.username, sc)
-    return redirect('https://thebestthereis2.herokuapp.com/game')
+    #return redirect('https://thebestthereis2.herokuapp.com/game')
+    scores = get_desc_order()
+    return render_template('index.html',scores=scores)
 
 @user_views.route('/scores', methods=['GET'])
 def get_scores_page():
