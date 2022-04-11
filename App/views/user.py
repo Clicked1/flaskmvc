@@ -32,7 +32,7 @@ def signup_user():
     data = request.form
     stat = create_user(data['username'], data['email'], data['password'])
     if(stat == 'pass'):
-        flash('Acount Created!')
+        flash('Account Created!')
         return render_template('login.html')
     else:
         flash('Username or Email already in use!')
