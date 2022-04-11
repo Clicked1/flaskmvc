@@ -48,6 +48,7 @@ def logsIn_user():
     login_user(user)
     #return redirec'(url_for('user_views.render_game'))
     return redirect('https://thebestthereis2.herokuapp.com/game')
+    #return render_template('index.html')
 
 @user_views.route('/logout', methods=['GET'])
 @login_required

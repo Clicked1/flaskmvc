@@ -15,7 +15,7 @@
         }
         
         body{
-            background-color:#030613;
+            background-color:#313231;
             margin: 0;
             
             height: 100%;
@@ -30,8 +30,8 @@
         }
         
         body, .word-list, .title1{
-            font-family: "Lucida Console", "Courier New", monospace;
-            color: #4fcdb9;
+            font-family: Courier, monospace;
+            color: #8899a16c;
         }
         
         .container{
@@ -48,15 +48,16 @@
             text-align: left;
             padding-left: 20px;
             padding-top: 20px;
-            font-size: 30px;
-            color: #4fcdb9
+            font-size: 40px;
+            color: #b0bec5;
+            font-family: Andale Mono, monospace
             
             
         }
         
         .timer{
             font-size: 2rem;
-            color: #e4609b;
+            color: #b0bec5;
             padding-bottom: 20px;
             font-weight: bold;
         
@@ -73,15 +74,16 @@
         }
         
         .user-input{
-            border: 2px solid green;
+            border: 2px solid #b0bec5;
+            border-radius: 1.2rem;
             outline: none;
             resize: none;
             padding: 5px;
             margin-top: 60px;
-            font-size: 27px;
+            font-size: 22px;
             width: 100%;
             background-color: transparent;
-            color: bisque;
+            color: #b0bec5;
         }
         
         .correct{
@@ -89,7 +91,7 @@
         }
         
         .incorrect{
-            color: #e4609b;
+            color: #dd452e;
             text-decoration: underline;
         }
         
@@ -108,8 +110,8 @@
         
         .button-81 {
             background-color: #fff;
-            border: 0 solid #e2e8f0;
-            border-radius: 1.5rem;
+            border: 1 solid #b0bec5;
+            border-radius: 1.2rem;
             box-sizing: border-box;
             color: #0d172a;
             cursor: pointer;
@@ -132,7 +134,7 @@
         }
         
         .button-81:hover {
-            background-color: #1e293b;
+            background-color: #b0bec5;
             color: #fff;
         }
         
@@ -144,22 +146,21 @@
             margin-top: 1rem;
             visibility: hidden;
         }
+
+
   
     </style>
   </head>
   
   <body>
-    <nav class="blue">
+    <nav class="blue-grey">
         <div class="nav-wrapper">
-            <a href="/game" class="brand-logo">QWERTY</a>
+            <a href="/game" class="center brand-logo" style="font-family: Andale Mono, monospace;">QWERTY</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li> <a href="/logout">Logout</a> </li>
+              <li> <a href="/logout" style="font-family: Helvetica, sans-serif;">Logout</a> </li>
             </ul>
       </nav>
-    <div>
-        <div id="title1" class="title1">QWERT</div>
-        <a class="waves-effect waves-light btn" href="/logout">Logout</a>
-    </div>
+ 
 
     
     <div id="game" class="game">
@@ -172,9 +173,8 @@
         <div class="timer" id="timer"></div>
         <div class="word-list" id="word-list"></div>
         <textarea id="user-input" class="user-input"></textarea>
-        <div class="buttons">
-            <button class="button-81" type='button' id='retry' onClick="document.location.reload(true)">Retry</button>
-            
+        <div class='setting' id="setting">
+            <button  class="button-81" type='button' id='retry' onClick="document.location.reload(true)">Retry</button>
         </div>
         
        
@@ -317,12 +317,13 @@
             })
             
             wordListElement.innerText = "Game over !!! \n "
-            wordListElement.innerText += "Avg. WPM  " + (score/5)*4  + " "+ difficulte+ "\n"
+            wordListElement.innerText += "Avg. WPM  " + (score/5)*4  + " "+ difficulte+ "\n\n"
+            //wordListElement.style.justifyContent='center'
             
             wordListElement.innerHTML += 
                             ' <form action="/create/ ' + (score/5)*4 + '">' +
-                            '<input type="submit" value="Add Score">'+
-                           '</form>'
+                            '<input type="submit" class = "right button-81" value="Add Score">'+
+                            '</form>'
             userInput.value = ''
             retry.style.visibility='visible'
    
