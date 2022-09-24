@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
     username =  db.Column(db.String(80),unique=True,nullable=False)
     password = db.Column(db.String(120), nullable=False)
     score = db.relationship('Scores', backref='user', lazy=True,cascade="all, delete-orphan" )
-
+    review = db.relationship('Review', backref='user', lazy=True,cascade="all, delete-orphan" )
 
 
     def __init__(self, username,email, password):
