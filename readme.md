@@ -11,7 +11,7 @@ A template for flask applications structured in the Model View Controller patter
 
 # Installing Dependencies
 ```
-$ pip install -r requirements.txt
+
 ```
 
 # Configuration Management
